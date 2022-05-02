@@ -1,0 +1,15 @@
+#display-image{
+    width: 500px;
+    height: 405px;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+  }
+  body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      gap: 10px;
+  }
