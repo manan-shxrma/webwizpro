@@ -10,11 +10,14 @@ document.getElementById("uploader").onchange = function(e) {
     image.onload = function() {
       var img = new fabric.Image(image);
       img.set({
-        left: 0,
-        top: 0
+        left: 250,
+        top: 150
+        
       });
+      img.set('selectable', false);
       img.scaleToWidth(200);
       canvas.add(img).setActiveObject(img).renderAll();
+      canvas.selection = false; 
     }
   }
   reader.readAsDataURL(e.target.files[0]);
@@ -29,7 +32,7 @@ document.getElementById("uploader").onchange = function(e) {
     if (zoom < 1) zoom = 1;
     canvas.zoomToPoint({ x: opt.e.offsetX, y: opt.e.offsetY }, zoom);
     opt.e.preventDefault();
-    opt.e.stopPropagation();
+    // opt.e.stopPropagation();
     var vpt = this.viewportTransform;
     if (zoom < 400 / 1000) {
       vpt[4] = 200 - 1000 * zoom / 2;
